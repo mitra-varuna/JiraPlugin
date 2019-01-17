@@ -8,6 +8,9 @@ import com.ssushant.myplugin.api.MyPluginComponent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import static java.lang.String.format;
+import static java.util.Optional.ofNullable;
+
 @ExportAsService({MyPluginComponent.class})
 @Named("myPluginComponent")
 public class MyPluginComponentImpl implements MyPluginComponent {
@@ -20,10 +23,9 @@ public class MyPluginComponentImpl implements MyPluginComponent {
     }
 
     public String getName() {
-        if (null != applicationProperties) {
-            return "myComponent:" + applicationProperties.getDisplayName();
-        }
-
-        return "myComponent";
+        return ofNullable(applicationProperties)
+                .map(ApplicationProperties::getDisplayName)
+                .map(name -> format("myComponent:%s", name))
+                .orElse("myComponent");
     }
 }
