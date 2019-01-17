@@ -12,19 +12,20 @@ Full documentation is always available at:
 
 https://developer.atlassian.com/display/DOCS/Introduction+to+the+Atlassian+Plugin+SDK
 
-#Notes
 
-##Setting up Java Home
+# Notes
+
+## Setting up Java Home
 
 `export JAVA_HOME=$(/usr/libexec/java_home)`
 
-##Installing Atlassian SDK
+## Installing Atlassian SDK
 
-`brew tap`
+`brew tap atlassian/tap`
 
-`brew install`
+`brew install atlassian/tap/atlassian-plugin-sdk`
 
-##Creating a new JIRA plugin project
+## Creating a new JIRA plugin project
 
 `atlas-create-jira-plugin`
 
